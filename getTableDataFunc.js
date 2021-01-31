@@ -38,7 +38,11 @@ module.exports = data => {
                   cellArray.push(selects.SelectionStatus);
                 } else {
                   const completedWord = utils.buildWords(words);
-                  cellArray.push(completedWord);
+                  cellArray.push({
+                    Text: completedWord,
+                    Geometry: tableCell.Geometry
+                  });
+                  // cellArray.push(completedWord);
                 }
               });
             } else {
@@ -67,7 +71,7 @@ module.exports = data => {
         const objects = table.map(tableRows => {
           return headers.reduce(
             (accumulator, currentHeaderValue, initialValue) => {
-              accumulator[currentHeaderValue] = tableRows[initialValue];
+              accumulator[currentHeaderValue.Text] = tableRows[initialValue];
               return accumulator;
             },
             {}

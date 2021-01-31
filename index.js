@@ -3,7 +3,7 @@ const getFormDataFunc = require('./getFormDataFunc');
 const getTableDataFunc = require('./getTableDataFunc');
 
 // @ts-check
-module.exports = async data => {
+module.exports = data => {
   if (data === undefined || data === null) {
     throw new Error(
       'This function requires the json response from Textract as its input...'

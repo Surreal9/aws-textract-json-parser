@@ -34,7 +34,10 @@ module.exports = data => {
               result.push(selects.SelectionStatus);
             } else {
               const completedWord = utils.buildWords(words);
-              result.push(completedWord);
+              result.push({
+                Text: completedWord,
+                Geometry: valueIds[0].Geometry
+              });
             }
           }
           return result;

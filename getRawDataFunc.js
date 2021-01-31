@@ -9,7 +9,7 @@ module.exports = data => {
             (options && options.minConfidence ? options.minConfidence : 0)
       );
 
-      return lines.map(id => id.Text);
+      return lines.map(({ Text, Geometry }) => ({ Text, Geometry }));
     } catch (error) {
       return error;
     }
